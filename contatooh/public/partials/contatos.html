@@ -1,3 +1,25 @@
-<h1>Bem-vindo ao Contatooh</h1>
-<button ng-click="incrementa()">Novo</button>
+<div class="jumbotrom">
+    <h1 class="text-center">
+        Bem-vindo ao Contatooh
+    </h1>
+</div>
+
+<button class="btn btn-primary" ng-click="incrementa()">Novo</button>
+<input type="search" placeholder="Parte do nome" ng-model="filtro">
 <p>Contatos cadastrados: {{total}}</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <th>NOME</th>
+            <th>E-MAIL</th>
+            <th class="text-center">Ação</th>
+        </tr>
+        <tr ng-repeat="contato in contatos | filter: filtro">
+            <td><a href="">{{contato.nome}}</a></td>
+            <td>{{contato.email}}</td>
+            <th class="text-center">
+                <button class="btn btn-warning">Remover</button>
+            </th>
+        </tr>
+    </table>
+</div>
