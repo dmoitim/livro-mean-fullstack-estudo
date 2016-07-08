@@ -1,7 +1,8 @@
 var express = require('express');
-var home = require('../app/routes/home');
+var consign = require('consign');
+var bodyParser = require('body-parser');
 
-module.exports = function(){
+module.exports = function() {
     var app = express();
 
     //Variáveis de ambiente
@@ -12,10 +13,17 @@ module.exports = function(){
 
     //Configuração do template engine EJS
     app.set('view engine', 'ejs');
-    app.set('views', './app/views');
+    app.set('views','./app/views');
+    // novos middlewares
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
+    app.use(require('method-override')())
 
-    //Rotas
-    home(app);
+    consign({cwd: 'app'})
+    .include('models')
+    .then('controllers')
+    .then('routes')
+    .into(app);
 
     return app;
-}
+};
