@@ -6,7 +6,8 @@
 
 <button class="btn btn-primary">Novo</button>
 <input type="search" placeholder="Parte do nome" ng-model="filtro">
-<p>Contatos cadastrados: {{contatos.length}}</p>
+<p ng-show="contatos.length">Contatos cadastrados: {{contatos.length}}</p>
+<p class="text-indo" ng-hide="contatos.length">Não há contatos cadastrados</p>
 <div class="table-responsive">
     <table class="table table-hover">
         <tr>
@@ -18,7 +19,7 @@
             <td><a href="">{{contato.nome}}</a></td>
             <td>{{contato.email}}</td>
             <th class="text-center">
-                <button class="btn btn-warning">Remover</button>
+                <button class="btn btn-warning" ng-click="remove(contato)">Remover</button>
             </th>
         </tr>
     </table>
