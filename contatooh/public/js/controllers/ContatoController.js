@@ -1,5 +1,5 @@
-angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, $resource){
-    var Contato = $resource('/contatos/:id');
+angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, Contato){
+    //Contato está vindo o ContatoService, que é onde o $resource foi construído
 
     if($routeParams.contatoId){
         Contato.get({id: $routeParams.contatoId},

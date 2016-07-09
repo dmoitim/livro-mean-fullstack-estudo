@@ -1,9 +1,9 @@
-angular.module('contatooh').controller('ContatosController', function($scope, $resource){
+angular.module('contatooh').controller('ContatosController', function($scope, Contato){
+    //Contato está vindo o ContatoService, que é onde o $resource foi construído
+
     $scope.contatos = [];
     $scope.filtro = '';
     $scope.mensagem = {texto: ''};
-
-    var Contato = $resource('/contatos/:id');
 
     function buscaContatos(){
         Contato.query(
