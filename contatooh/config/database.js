@@ -4,6 +4,9 @@ module.exports = function(uri){
     //Realiza a conexão e configura o pool
     mongoose.connect(uri, {server: {poolSize: 15}});
 
+    //Produção: false
+    mongoose.set('debug', true);
+
     mongoose.connection.on('connected', function(){
         console.log('Mongoose conectado em '+uri);
     });
@@ -24,4 +27,4 @@ module.exports = function(uri){
             process.exit(0);
         });
     });
-}
+};
