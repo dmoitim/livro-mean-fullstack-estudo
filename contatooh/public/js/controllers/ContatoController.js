@@ -26,4 +26,9 @@ angular.module('contatooh').controller('ContatoController', function($scope, $ro
                 $scope.mensagem = {texto: 'Não foi possível salvar.'};
             });
     };
+
+    //Retorna todos os contatos cadastrados
+    Contato.query(function(contatos){
+        $scope.contatos = contatos;
+    });
 });

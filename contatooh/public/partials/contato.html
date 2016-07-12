@@ -12,6 +12,10 @@
             <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" required ng-model="contato.email">
         </div>
     </div>
+    <div class="form-group">
+        <label for="emergencia">Emergência</label>
+        <select name="emergencia" id="emergencia" class="form-control" ng-model="contato.emergencia" ng-options="contato._id as contato.nome for contato in contatos"></select>
+    </div>
     <div>
         <button type="submit" class="btn btn-primary">Salvar</button>
         <a href="#/" class="btn btn-default">Voltar</a>
